@@ -4,5 +4,5 @@
 
 
 
-Interesting projects and laboratory exercises done by me from FINKI (Faculty Of Computer Science and Engineering). (EN)
+Interesting projects and laboratory exercises done by me from FINKI (Faculty of Computer Science and Engineering). (EN)
 
