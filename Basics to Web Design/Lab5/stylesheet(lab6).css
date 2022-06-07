@@ -1,0 +1,122 @@
+body
+{
+   font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+.top-bar header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+
+}
+h1 a
+{
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+.navigation ul {
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.navigation li{
+    display: inline-block;
+    padding: 5px 7px;
+
+}
+.navigation a {
+    color: #395870;
+    padding: 12px 35px;
+    text-decoration: none;
+    border-radius: 5px;
+
+}
+.navigation a:hover {
+    background: #395870;
+    color: white;
+    opacity: 80%;
+
+}
+
+table
+{
+    letter-spacing: 1px;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    top: 110px;
+    width: 1400px;
+}
+
+table, th, td, tr {
+    border: 2px solid;
+    text-align: center;
+}
+caption
+{
+    padding-left: 50px;
+    font-size: 15px;
+}
+
+.table-center
+{
+padding-top: 70px;
+}
+
+.contact-form
+{
+    background-color: #f2f2f2;
+    margin: 0 25px;
+    height: 450px;
+    border-radius: 5px;
+
+}
+input, select {
+    width: 45%;
+    border-radius: 4px;
+    height: 35px;
+    border: solid 1px darkgray;
+    padding-left: 10px;
+
+}
+textarea
+{
+    resize: vertical;
+
+}
+input[type=submit]
+{
+
+    color: white;
+    background: seagreen;
+    width: 420px;
+   float: right;
+    margin-top: 50px;
+    margin-right: -195px;
+ text-align: center;
+    cursor: pointer;
+
+}
+input[type=submit]:hover
+{
+    opacity: 85%;
+}
+.contact-info
+{
+    background-color: #f2f2f2;
+    margin: 0 25px;
+    height: 100%;
+    border-radius: 5px;
+}
+.maps-wiki
+{
+    padding: 20px;
+}
+

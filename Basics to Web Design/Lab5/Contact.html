@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Finki WebPage Contact">
+    <meta name="keywords" content="Finki, Finki WebPage, HTML, CSS">
+    <meta name="author" content="Darko Vasiljkov">
+    <link rel="stylesheet" href="stylesheet(lab6).css">
+    <title>Contact</title>
+</head>
+<body>
+<div class="top-bar">
+    <header>
+        <h1 style="font-size: 28px;">
+            <a href="Home.html">
+                <span>Finki<span style="color: limegreen">Page</span></span>
+            </a>
+        </h1>
+
+        <nav class="navigation">
+            <ul class="nav">
+                <li> <a href="Home.html"> Home </a></li>
+                <li> <a href="Contact.html" style="color: white; background: #395870;"> Contact </a></li>
+                <li> <a href="Info.html"> Info </a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+<div style="background-color: rgb(127, 218, 127); height: 674px;">
+    <div  style="padding-top: 20px; text-align: center;">
+    <h2>Contact Form</h2>
+     </div>
+        <div class="contact-form">
+        <form action="" method="get">
+            <div style="padding-top: 30px;">
+            <label style="float: left; padding-left: 30px;" for="namefirst" >First Name</label>
+                <label style="float: right; padding-right: 650px;"  for="namelast" >Last Name</label>
+                <br/>
+                <br/>
+            <input  style="float: left; margin-left: 30px;" type="text" id="namefirst" name="firstname" placeholder="Your name..">
+                <input  style="float: right; margin-right: 50px;" type="text" id="namelast" name="namelast" placeholder="Your last name..">
+                <br/>
+                <br/>
+                <br/>
+            <label style="float: left; padding-left: 30px;" for="ddmmyyyy">Date of birth</label>
+
+                <br/>
+                <br/>
+            <input  style="float: left; margin-left: 30px;" type="date" id="ddmmyyyy" name="datum">
+
+                <br/>
+                <br/>
+                <br/>
+            <label style="float: left; padding-left: 30px;" for="country">Country</label>
+                <br/>
+                <br/>
+            <select style="float: left; margin-left: 30px; width: 46%" id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="usa">USA</option>
+                <option value="europe">Europe</option>
+                <option value="asia">Asia</option>
+            </select>
+                <br/>
+                <br/>
+                <br/>
+                <label style="float: left; padding-left: 30px; padding-top: 2px;" for="CV">CV</label>
+                <input style="float: left;border: 0;" type="file" id="cv" name="cv">
+
+                <label style="float: right; padding-right: 675px; margin-top: -180px;"  for="subject">Subject</label>
+                <textarea id="subject" style="width:670px; height:200px; color: gray; margin-top: -145px; border-radius: 3px; float: right; margin-right: 48px; border: solid 1px darkgray; padding-left: 10px; padding-top: 10px;">Write something...</textarea>
+
+                <input type="submit" id="submit" name="submit">
+            </div>
+
+
+        </form>
+
+
+
+
+
+
+
+        </div>
+</div>
