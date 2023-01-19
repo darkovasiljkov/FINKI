@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items and Type</title>
+
+    <style>
+        body
+        {
+            font-family: "Goudy Bookletter 1911", sans-serif;
+        }
+        div
+        {
+            margin-bottom: 15px;
+
+        }
+        span
+        {
+            width: 60px;
+            display: inline-block;
+        }
+    </style>
+
+    <script>
+function show_data()
+{
+  var items =document.getElementById("items").value.split(',').map(element => element.trim());
+  var isCheckBox=document.getElementById("selectType").value==="Checkbox";
+  var showData=document.getElementById("showData");
+
+    if (isCheckBox)
+    {
+        var helper="";
+        items.forEach(item => helper+="<input type='checkbox'>"+item );
+        showData.innerHTML=helper;
+    }
+    else
+    {
+        var helper="";
+        items.forEach(item => helper+="<input name='random' type='radio'>"+item );
+        showData.innerHTML=helper;
+    }
+}
+    </script>
+
+</head>
+<body>
+<div>
+    <span>Items:</span><input id="items" type="text">
+</div>
+<div>
+    <span>Type:</span><select id="selectType">
+    <option>Checkbox</option>
+    <option>Radio button</option>
+</select>
+    <br/>
+    <br/>
+    <button id="button" onclick="show_data()">Прикажи</button>
+</div>
+<form id="showData">
+    <!-- mesto kade se zapisuvaat  RadioButtons или  Checkbox -->
+</form>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Forms</title>
+
+
+    <style>
+        body
+        {
+            font-family: "Goudy Bookletter 1911", sans-serif;
+        }
+        div
+        {
+            margin-bottom: 15px;
+
+        }
+        span
+        {
+            width: 80px;
+            display: inline-block;
+        }
+        table, tr, th,td
+        {
+            border: 2px solid black;
+            font-weight: bold;
+            padding: 5px;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+    </style>
+
+    <script>
+
+        const valuesForTable = [];
+
+        function submit_data()
+        {
+            const obj =
+                {
+                    name: document.getElementById("name").value,
+                    surname: document.getElementById("surname").value,
+                    subject: document.getElementById("subject").value,
+                    grade: document.getElementById("grade").value,
+                    index:document.getElementById("index").value,
+                }
+            if (obj.name ==="" || obj.surname ==="" || obj.subject ==="" || obj.grade ==="" || obj.index ==="" )
+            {
+                alert("Vnesete gi site polinja za da prodolzhite!")
+                return;
+            }
+            if (isNaN(obj.index))
+            {
+                alert("Vnesete broj za indeks!")
+                return;
+            }
+
+            valuesForTable.push(obj);
+            renderTable();
+            document.getElementById("name").value = "";
+            document.getElementById("surname").value= "";
+            document.getElementById("subject").value = "";
+            document.getElementById("index").value ="";
+        }
+        function renderTable()
+        {
+            var table=document.getElementById("takeTable");
+            table.innerHTML="";
+            valuesForTable.forEach(value =>
+            {
+                table.innerHTML+="<tr><td>"+ value.name + "</td><td>"+ value.surname + "</td><td>" + value.subject + "</td><td>" + value.index+"</td><td>" + value.grade + "</td></tr>";
+
+            });
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+<h1>Форма за внесување оцени</h1>
+<div>
+<span>Име:</span><input id="name" type="text">
+</div>
+<div>
+    <span>Презиме:</span><input id="surname" type="text">
+</div>
+<div>
+    <span>Индекс:</span><input id="index" type="text">
+</div>
+<div>
+    <span>Предмет:</span><input id="subject" type="text">
+</div>
+<div>
+<span>Оцена:</span><select id="grade">
+    <option>5 (пет)</option>
+    <option>6 (шест)</option>
+    <option>7 (седум)</option>
+    <option>8 (осум)</option>
+    <option>9 (девет)</option>
+    <option>10 (десет)</option>
+</select>
+    <br/><br/>
+
+    <button id="button" onclick="submit_data()">Внеси</button>
+</div>
+
+<div>
+    <table id="table">
+        <thead>
+        <tr>
+            <td>Име</td>
+            <td>Презиме</td>
+            <td>Индекс</td>
+            <td>Предмет</td>
+            <td>Оценка</td>
+        </tr>
+        </thead>
+        <tbody id="takeTable">
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

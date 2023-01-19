@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTMl,CSS, JavaScript, InternetProgramming">
+    <meta name="author" content="Darko Vasiljkov">
+    <title>Lab2-Exercise1</title>
+
+    <script>
+        function removecolor()
+        {
+            var colorSelect=document.getElementById("colorSelect")
+            console.log(colorSelect.value); /* ja pecatime tekovnata select opcija vo konzola */
+            colorSelect.options.remove(colorSelect.options.selectedIndex); /* ja briseme istata */
+        }
+    </script>
+</head>
+<body><form>
+    <select id="colorSelect">
+        <option>Red</option>
+        <option>Green</option>
+        <option>White</option>
+        <option>Black</option>
+    </select>
+    <input type="button" onclick="removecolor()" value="Select and Remove"><br></form>
+</body>
+</html>

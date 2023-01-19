@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the four digit number!</title>
+
+    <script>
+        let broj
+        let max = 10
+        let obidi
+
+        function generateNumbers()
+        {
+            broj = Math.floor((Math.random()) * (10000 - 1000)) + 1000;
+            console.log(broj)
+            obidi = 0
+            document.querySelector('div#prikaz').innerHTML = ""
+            document.querySelector('input#pogodi').value = ""
+            document.querySelector('span#obidi').innerHTML = obidi
+            document.querySelector('button#btn_guess').disabled = false
+        }
+
+        function guessNumber()
+        {
+            let pogodi = document.querySelector('input#guess').value
+            let status = document.querySelector('div#prikaz')
+            let pogodeni = 0, ima = 0
+
+            if (isNaN(parseInt(pogodi)) || parseInt(pogodi).toString().length !== 4)
+            {
+                alert("Invalid input!")
+                return;
+            }
+
+            for (let i = 0; i < pogodi.length; ++i) {
+                if (broj.toString().includes(pogodi[i]))
+                    ima++;
+                if (pogodi[i] === broj.toString()[i])
+                    pogodeni++;
+            }
+
+            status.innerHTML += `Има ${ima}, на место ${pogodeni} ${pogodi}<br>`;
+
+            if (tocni === 4)
+            {
+                status.innerHTML += "YOU GUESSED!"
+                document.querySelector('button#btn_guess').disabled = true
+            } else
+            {
+                obidi++
+                if (obidi > (max - 1))
+                {
+                    status.innerHTML += 'You did not successfully  guess from  ${max} (tries). The number is ${broj}'
+                    document.querySelector('button#btn_guess').disabled = true
+                }
+                document.querySelector('span#obidi').innerHTML = obidi;
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div>
+    <div style="text-align:right; float:left">
+        <label id="obid">Обиди 0</label>
+        <p>Погодок: <input id="guess" style="width:150px"/></p>
+        <button id="btn_guess" onclick="guessNumber()">Погоди</button>
+        <button onclick="generateNumbers()">Од почеток</button>
+    </div>
+</div>
+<br/>
+<div id="prikaz" style="clear: both">
+</div>
+</body>
+</html>

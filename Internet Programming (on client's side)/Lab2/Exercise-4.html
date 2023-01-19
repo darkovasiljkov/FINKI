@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTMl,CSS, JavaScript, InternetProgramming">
+    <meta name="author" content="Darko Vasiljkov">
+    <title>Lab2-Exercise4</title>
+    <style>
+      p
+       {
+           display: inline-block;
+       }
+      input
+      {
+          width:60px;
+      }
+    </style>
+    <script>
+        function sumOfComplexNumbers()
+        {
+            var firstNum=document.getElementById("firstNum");
+            var thirdNum=document.getElementById("thirdNum");
+            var secondNum=document.getElementById("secondNum");
+            var fourthNum=document.getElementById("fourthNum");
+            var resultFirst=document.getElementById("firstResult");
+            var resultSecond=document.getElementById("secondResult");
+            firstNum=parseInt(firstNum.value);
+            secondNum=parseInt(secondNum.value);
+            thirdNum=parseInt(thirdNum.value);
+            fourthNum=parseInt(fourthNum.value);
+            resultFirst.value=firstNum+thirdNum;
+            resultSecond.value=secondNum+fourthNum;
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="firstNum"> <input type="text" id="secondNum"><p>i</p>
+</br>
+<input type="text" id="thirdNum"> <input type="text" id="fourthNum"><p>i</p>
+</br>
+</br>
+<button id="btn" onclick="sumOfComplexNumbers()">Add</button>
+</br>
+</br>
+<input type="text" id="firstResult"> <input type="text" id="secondResult"><p>i</p>
+</body>
+</html>

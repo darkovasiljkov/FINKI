@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change the background</title>
+
+    <style>
+        body
+        {
+            font-family: "Goudy Bookletter 1911", sans-serif;
+        }
+        div
+        {
+            margin-bottom: 15px;
+
+        }
+        span
+        {
+            width: 60px;
+            display: inline-block;
+        }
+    </style>
+
+    <script>
+        function change_background()
+        {
+         let getValue =document.getElementById("getValue").value;
+
+            if (document.getElementById('getColor').checked)
+            {
+                document.body.style.backgroundColor=getValue;
+            }
+            else
+            {
+                document.body.style.backgroundImage = `url('${getValue}')`;
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+
+<h1>Промена на позадина</h1>
+<br/>
+<div style="margin-left: 70px">
+    <input id="getColor" name="oneSelected" value="color" type="radio">  <span>Color</span>
+    <input id="getImage" name="oneSelected" value="image" type="radio">  <span>Image</span>
+</div>
+<div>
+<span>Value: </span><input id="getValue" type="text">
+</div>
+    <br/>
+    <button style="margin-left: 150px;" id="button" onclick="change_background()">Промени</button>
+
+</body>
+</html>

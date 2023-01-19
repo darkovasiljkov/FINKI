@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1-Exercise4</title>
+    <meta name="keywords" content="HTMl,CSS, JavaScript, InternetProgramming">
+    <meta name="author" content="Darko Vasiljkov">
+
+</head>
+<body>
+<h1 id="sign"></h1>
+<script>
+
+var a = parseInt(prompt("Vnesi prv broj: "));
+var b = parseInt(prompt("Vnesi vtor broj: "));
+var c = parseInt(prompt("Vnesi tret broj: "));
+
+var element = document.getElementById("sign");
+
+console.log(a,b,c);
+
+if(!isNaN(a) || !isNaN(b) || !isNaN(c))
+{
+    var product=a*b*c;
+
+    if (product>=0)
+    {
+        element.innerHTML="Знакот е " + "+";
+
+    }
+    else
+    {
+        element.innerHTML="Знакот е " + "-";
+    }
+
+}
+else
+{
+    element.innerHTML="GRESHKA vo vlez!";
+
+}
+</script>
+</body>
+</html>

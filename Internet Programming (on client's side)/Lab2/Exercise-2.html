@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTMl,CSS, JavaScript, InternetProgramming">
+    <meta name="author" content="Darko Vasiljkov">
+    <title>Lab2-Exercise2</title>
+<style>
+    button
+    {
+        width: 170px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-transform: uppercase;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-block;;
+
+    }
+    button:hover
+    {
+        box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+        border: 3px solid #00d7c3;
+
+    }
+</style>
+    <script>
+        function showImage()
+        {
+            var images=['https://designmodo.com/wp-content/uploads/2014/07/free-photos.jpg' ,
+                'https://farm5.staticflickr.com/4060/4567292488_5d3f4b05f6_z.jpg',
+                'https://wallup.net/wp-content/uploads/2017/03/28/401266-landscape-road-forest-748x421.jpg']
+            var image = document.getElementById("image")
+            image.src=images[Math.floor(Math.random()*3)];
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btn" onclick="showImage()">Кликни тука!</button>
+</br>
+    </br>
+    <img id="image"" style="width:150px" height="150px" />
+</body>
+</html>

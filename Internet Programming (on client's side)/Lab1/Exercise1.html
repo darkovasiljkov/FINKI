@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1-Exercise1</title>
+    <meta name="keywords" content="HTMl,CSS, JavaScript, InternetProgramming">
+    <meta name="author" content="Darko Vasiljkov">
+
+</head>
+<body>
+<h2 id="result"></h2>
+
+<script>
+    var number = prompt("Vnesi trocifren broj : ");
+   var element = document.getElementById("result");
+    if (isNaN(parseInt(number)))
+    {
+        element.innerHTML="Invalid (vnesete broj)!"
+    }
+    else if(number.length !==3 || number.charAt(0)==='0' )
+    {
+        element.innerHTML ="Ne vnesovte trocifren broj!";
+    }
+    else
+    {
+        let flag=true;
+        for(let i=0; i<number.length; i++)
+        {
+            if(number.charAt(i)!==number.charAt(number.length-i-1)){
+                flag=false;
+                break;
+            }
+        }
+        if(flag)
+        {
+            element.innerHTML="PALINDROM E!";
+        }
+        else
+        {
+            element.innerHTML = "NE E PALINDROM!";
+        }
+    }
+
+</script>
+</body>
+</html>

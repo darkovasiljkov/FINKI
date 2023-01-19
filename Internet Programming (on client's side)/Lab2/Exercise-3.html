@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>About Me</title>
+
+
+</head>
+<body>
+<h1>About Me</h1>
+<ul>
+  <li>Name: <span id="name"></span>
+  <li>Index: <span id="index"></span>
+  <li>Hometown: <span id="hometown"></span>
+</ul>
+<script>
+  document.body.style.fontFamily="Arial";
+ var ime=document.getElementById("name");
+  var index=document.getElementById("index");
+  var hometown=document.getElementById("hometown");
+
+  ime.innerHTML="Darko";
+  index.innerHTML="Vasiljkov";
+  hometown.innerHTML="Kumanovo";
+  var together =document.querySelectorAll("li");
+for (var i of together)
+{
+  i.style.backgroundColor="red";
+}
+
+
+</script>
+</body>
+</html>

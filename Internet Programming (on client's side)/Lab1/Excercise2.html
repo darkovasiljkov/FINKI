@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1-Exercise2</title>
+    <meta name="keywords" content="HTMl,CSS, JavaScript, InternetProgramming">
+    <meta name="author" content="Darko Vasiljkov">
+
+</head>
+<body>
+<h1 id="phoneOperators"></h1>
+
+<script>
+    var phoneNumber = prompt("Vnesi mobilen broj: ");
+    var element = document.getElementById("phoneOperators");
+    var slices = [phoneNumber.slice(0,2), phoneNumber.slice(2,5),phoneNumber.slice(5)]; /*
+                                                                                 kje gi koristime prvite 2 za da go doznaeme operatorot */
+    let helper="";
+    let zero=0;
+    if (slices[0] === '70' || slices[0] === '71' || slices[0] === '72')
+    {
+         helper="T-Mobile";
+    }
+    else if (slices[0] === '75' || slices[0] === '76')
+        {
+            helper="One";
+        }
+    else if (slices[0] === '77' || slices[0] === '78')
+    {
+        helper="Vip";
+    }
+
+
+        if (isNaN(parseInt(phoneNumber)) || phoneNumber.length !==8 || phoneNumber.charAt(0)==='0')
+        {
+            element.innerHTML="Greska vo vnesot, obidete se POVTORNO!"
+        }
+        else
+        {
+            element.innerHTML=zero+slices[0]+"/"+slices[1]+"-"+slices[2]+" "+ helper;
+        }
+
+
+
+</script>
+</body>
+</html>

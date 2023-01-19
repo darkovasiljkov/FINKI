@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Darko Vasiljkov">
+    <title>Lab3-4</title>
+</head>
+<script>
+
+    var books = [
+        {
+            title: 'The Hobbit',
+            author: 'J.R.R. Tolkien',
+            alreadyRead: true
+        },
+        {
+
+            title: 'The Lord Of The Rings',
+            author: 'J.R.R. Tolkien',
+            alreadyRead: false
+        },
+        {
+
+            title: 'Adultery',
+            author: 'Paulo Coelho',
+            alreadyRead: false
+        },
+        {
+
+            title: 'Rich Dad Poor Dad',
+            author: 'Robert Kiyosaki',
+            alreadyRead: true
+        }];
+    for (var i = 0; i < books.length; i++)
+    {
+        if (books[i].alreadyRead)
+        {
+            console.log("'You already read " + "'" + books[i].title + "'" +" by " + books[i].author + "'");
+        } else
+        {
+            console.log("'You still need to read " + "'" + books[i].title + "'" +" by " + books[i].author + "'");
+        }
+    }
+</script>
+<body>
+</body>
+</html>

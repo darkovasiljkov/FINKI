@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab1-Exercise3</title>
+    <meta name="keywords" content="HTMl,CSS, JavaScript, InternetProgramming">
+    <meta name="author" content="Darko Vasiljkov">
+
+</head>
+<body>
+<h1 id="string"></h1>
+
+<script>
+
+    var sentence = prompt("Vnesi nekoj string: ");
+    var element = document.getElementById("string");
+    const sentenceHelper=sentence.split(' ');
+        var max=0;
+        var  maxString="";
+        for(var i=0; i<sentenceHelper.length; i++)
+        {
+            if (sentenceHelper[i].length>max)
+            {
+                max=sentenceHelper[i].length;
+                maxString=sentenceHelper[i];
+            }
+        }
+
+        element.innerHTML=maxString;
+
+</script>
+</body>
+</html>
