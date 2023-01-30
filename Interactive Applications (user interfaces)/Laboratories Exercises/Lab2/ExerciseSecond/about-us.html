@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Menu Page Interface</title>
+    <style>
+        body
+        {
+            font-family: "Helvetica", Times, serif;
+            background-color: floralwhite;
+        }
+
+        nav ul
+        {
+            padding: 0;
+            margin: auto;
+            width: 1000px;
+            height: 50px;
+        }
+        nav li
+        {
+            display: inline-block;
+            float: left;
+
+        }
+        nav a:not(#pull)
+        {
+            color: darkgreen;
+            background-color: papayawhip;
+            display: inline-block;
+            border: 1px solid darkgreen;
+            width: 170px;
+            text-align: center;
+            text-decoration: none;
+            line-height: 40px;
+
+        }
+
+        .navigation a#pull
+        {
+            color: palegreen;
+            background-color: darkgreen;
+            display: inline-block;
+            border: 1px solid palegreen;
+            width: 100px;
+            text-align: center;
+            text-decoration: none;
+            line-height: 40px;
+        }
+        nav a:hover, nav a:active
+        {
+            background-color: limegreen;
+        }
+
+        nav a#pull:hover
+        {
+            color: white;
+            background:forestgreen;
+        }
+
+    </style>
+    <script>
+        $(document ).ready(function()
+        {
+            var pull = $("#pull");
+            menu = $("nav ul");
+            menuHeight = menu.height();
+
+            $(pull).on("click", function(e) {
+                e.preventDefault();
+                menu.slideToggle("slow");
+            });
+
+            $('li').click(function(e) {
+
+            });
+
+
+        });
+
+
+    </script>
+</head>
+<body>
+<nav class="navigation">
+
+    <ul>
+        <li><a href="food-and-drink.html">Food and Drink</a></li>
+        <li><a href="electronics.html">Electronics</a></li>
+        <li><a href="home-and-garden.html">Home and Garden</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="connect.html">Connect</a></li>
+
+    </ul>
+    <a href="javascript:void(0)" id="pull">Menu</a>
+
+</nav>
+
+<br>
+<br>
+<div style="text-align:center">Content for About Us</div>
+
+</body>
+</html>
+
+
+
+

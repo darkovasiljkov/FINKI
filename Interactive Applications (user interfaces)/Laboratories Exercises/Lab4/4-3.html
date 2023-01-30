@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Autocomplete</title>
+    <link rel="stylesheet" href="jquery/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="jquery/jquery-ui.css" />
+    <script src="jquery/jquery.bgiframe-2.1.2.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+<style>
+    #movieDescription
+    {
+        background: plum;
+        border: 1px solid purple;
+        width: 205px;
+        margin-left: 130px;
+        padding: 5px;
+    }
+    .ui-widget
+    {
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+</style>
+    <script>
+
+            $(document).ready(function() {
+                $("#movieDescription").hide();
+            $("#movies").autocomplete({
+                source: [
+                    {   "label": "Oblivion",
+                        "value": "Oblivion",
+                        "description": "In the year 2077, Jack Harper (Tom Cruise) works as a security repairman on an Earth left empty and devastated after a war with aliens. Jack has two weeks left before his mission ends and he joins his fellow survivors on a faraway colony.",
+                        "shortDescription": "In the year 2077, Jack Harper (Tom Cruise) works as a security repairman on an Earth",
+                    },
+                    {   "label": "Ender Game",
+                        "value": "Ender Game",
+                        "description": "Young Ender Wiggin is recruited by the International Military to lead the fight against the Formics, an insectoid alien race who had previously tried to invade Earth and had inflicted heavy losses on humankind.",
+                        "shortDescription": "Young Ender Wiggin is recruited by the International Military to lead the fight against the Formics",
+                    },
+                    { "label": "Elysium",
+                        "value": "Elysium",
+                        "description": "A man takes on a mission that could bring equality to the polarized worlds. In the year 2154, two classes of people exist: the very wealthy, who live on a pristine man-made space station called Elysium.",
+                        "shortDescription": "A man takes on a mission that could bring equality to the polarized worlds.",
+                    },
+                    { "label": "Avatar: The Way of Water",
+                        "value": "Avatar: The Way of Water",
+                        "description": "Avatar The Way of Water: begins to tell the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them etc. etc. ",
+                        "shortDescription": "Avatar The Way of Water: begins to tell the story of the Sully family (Jake, Neytiri, and their kids)",
+                    },
+                ],
+                response: function(event, ui) {
+                    ui.content.forEach(function(suggestion) {
+                        if (!suggestion.label.includes(suggestion.shortDescription)) {
+                            suggestion.label = suggestion.label + ": " + suggestion.shortDescription;
+                        }
+                    });
+                },
+                select: function(event, ui) {
+                    $("#movieDescription").show().html(ui.item.description);
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<div class="ui-widget">
+    <span>Select a movie:</span>
+    <input type="text" id="movies">
+    <br/>
+    <br/>
+    <div id="movieDescription"></div>
+</div>
+
+</body>
+</html>

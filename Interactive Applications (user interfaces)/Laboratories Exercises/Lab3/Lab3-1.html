@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Game</title>
+    <script src="jquery/jquery-ui.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <link rel="stylesheet" href="jquery/jquery-ui.min.css">
+    <style>
+      body
+      {
+    font-family: "Times New Roman", Times, serif;
+       }
+        .cards
+        {
+            margin: auto;
+            padding: 0;
+            width: 1000px;
+        }
+        .memoryCard:nth-child(even)
+        {
+            border: 3px solid darkred;
+        }
+        .memoryCard:nth-child(odd)
+        {
+            border: 3px solid dodgerblue;
+        }
+        .card .memoryCard h2
+        {
+            text-align: center;
+            vertical-align: center;
+        }
+        .memoryCard
+        {
+            background: linear-gradient(#1E5799, #7db9e8);
+            width: 200px;
+            height: 200px;
+            margin: 12px;
+            float: left;
+            text-align: center;
+            vertical-align: center;
+            font-size: 30px;
+           color: white;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            let cards=
+                {
+                memoryCards:
+                    [   'Darko','Darko',
+                        'Stefan','Stefan',
+                        'Ivan','Ivan',
+                        'Angel','Angel',
+                        'Damjan','Damjan',
+                        'Marko','Marko',
+                        'Vlatko','Vlatko',
+                        'Aleks','Aleks'   ],
+
+                main: function ()
+                {
+                    cards.randomCards();
+                },
+
+                randomCards: function ()
+                {
+                    var helper=0;
+                    var replace=0;
+                    for (let i=1; i<cards.memoryCards.length; i++)
+                    {
+                        helper=Math.round(Math.random()*i);
+                        replace=cards.memoryCards[i];
+                        cards.memoryCards[i]=cards.memoryCards[helper];
+                        cards.memoryCards[helper]=replace;
+                    }
+                    cards.addValue();
+
+                    console.log(cards.memoryCards)
+                },
+                addValue: function ()
+                {
+                    $('.memoryCard').each(function (index)
+                    {
+                        $(this).attr('data-card-value', cards.memoryCards[index]);
+                    })
+                    cards.ClickCard();
+                },
+                ClickCard: function ()
+                {
+                    $('.memoryCard').on('click', function ()
+                    {
+                        $(this).html('<p>'+$(this).data('cardValue')+'</p>').addClass('selected')
+                        cards.checkMatch();
+                    })
+                },
+                checkMatch: function ()
+                {
+                    if($('.selected').length===2)
+                    {
+                        if ($('.selected').first().data('cardValue')===$('.selected').last().data('cardValue'))
+                        {
+                            $('.selected').each(function ()
+                            {
+                                $(this).animate({opacity: 0}).css({backgroundColor : "gray"}).removeClass('unmatched')
+                            })
+                            $(".selected").each(function ()
+                            {
+                                $(this).removeClass('selected');
+                            })
+
+                        }
+                        else {
+                            setTimeout(function (){
+                                $(".selected").each(function (){
+                                    $(this).html('').removeClass('selected');
+                                })
+                            }, 1000)
+                        }
+                    }
+                }
+
+            }
+            cards.main();
+        })
+    </script>
+
+</head>
+<body>
+<div class="cards">
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>1</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>2</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>3</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>4</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>5</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>6</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>7</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>8</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>9</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>10</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>11</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>12</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>13</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>14</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>15</h2>
+    </div>
+    <div class="memoryCard" onmouseover="this.style.background='#80ba3b';" onmouseout="this.style.background='linear-gradient(#1E5799, #7db9e8)';">
+        <h2>16</h2>
+    </div>
+    </div>
+</body>
+</html>

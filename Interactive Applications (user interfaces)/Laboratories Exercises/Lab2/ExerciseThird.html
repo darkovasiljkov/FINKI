@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Add Book Modal Panel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+    <script src="jquery-ui-1.13.2.custom/jquery-ui.js"></script>
+    <link rel="stylesheet" href="jquery-ui-1.13.2.custom/jquery-ui.css">
+
+    <script>
+        $(document).ready(function()
+        {
+            $( "#dialog" ).dialog({
+                autoOpen: false,
+                modal: true,
+                buttons:
+                    {
+                    Add: function()
+                    {
+                        $("#data").html($("#input-data").val());
+
+                        $( "#dialog" ).dialog("close");
+
+                    }
+                }
+            });
+
+            $("#addBook").click(function(){
+                $( "#dialog" ).dialog("open");
+            });
+        });
+
+    </script>
+    <style>
+        #addBook, .book
+        {
+            margin: 10px;
+        }
+        .book
+        {
+            width:500px;
+            background:gainsboro;
+            padding: 5px;
+            border:1px gray dotted;
+            font-size: 1.4em;
+        }
+    </style>
+</head>
+<body>
+
+<button id="addBook">Add Book</button>
+<div id="data" class="book"></div>
+
+<div id="dialog" title="Book Informations">
+    <p>Enter data about book 🕮 below:</p>
+    <input id="input-data" type="text">
+
+</div>
+
+
+</body>
+</html>

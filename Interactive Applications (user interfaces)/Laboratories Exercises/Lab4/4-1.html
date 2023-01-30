@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tooltip Animations</title>
+    <link rel="stylesheet" href="jquery/jquery-ui.theme.css" />
+    <script src="jquery/jquery.bgiframe-2.1.2.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+</head>
+
+<style>
+     #wholeSection
+  {
+         width: 200px;
+         margin-top: 100px;
+         margin-left: auto;
+         margin-right: auto;
+    }
+    .ui-tooltip, .arrow:after {
+        background: black;
+        border: 2px solid white;
+        position: absolute;
+        left:-50px;
+    }
+    .ui-tooltip
+    {
+        padding: 10px 20px;
+        color: white;
+        border-radius: 20px;
+        font: bold 14px "Helvetica Neue", Sans-Serif;
+        text-transform: uppercase;
+        box-shadow: 0 0 7px black;
+        position:absolute;
+        left:-40px;
+    }
+    input
+    {
+        width:200px;
+    }
+    .arrow {
+        width: 70px;
+        height: 16px;
+        overflow: hidden;
+        position: absolute;
+        left: 40px;
+        margin-left: -40px;
+        bottom: -16px;
+    }
+
+    .arrow:after {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: -20px;
+        width: 25px;
+        height: 25px;
+        box-shadow: 6px 5px 9px -9px black;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        tranform: rotate(45deg);
+    }
+</style>
+
+<script>
+    $(function() {
+        $("#dropdown").change(function(){
+            $( document ).tooltip({
+                show:
+                    {
+                    effect: $( "#dropdown" ).val(),
+                    delay: 50
+                     },
+
+                position: {
+                    my: "center bottom-20",
+                    at: "left top",
+                    using: function(position,feedback)
+                    {
+                        $(this ).css(position);
+                        $( "<div>")
+                            .addClass( "arrow" )
+                            .addClass(feedback.vertical)
+                            .addClass(feedback.horizontal)
+                            .appendTo(this );
+                    }
+                }
+            })
+        })
+    });
+</script>
+<body>
+
+<div id="wholeSection">
+
+    <select id="dropdown">
+        <option value="Animation">Animation</option>
+        <option value="blind">Blind</option>
+        <option value="bounce">Bounce</option>
+        <option value="clip">Clip</option>
+        <option value="drop">Drop</option>
+        <option value="explode">Explode</option>
+        <option value="fade">Fade</option>
+        <option value="fold">Fold</option>
+        <option value="highlight">Highlight</option>
+        <option value="puff">Puff</option>
+        <option value="pulsate">Pulsate</option>
+        <option value="scale">Scale</option>
+        <option value="shake">Shake</option>
+        <option value="size">Size</option>
+        <option value="slide">Slide</option>
+    </select>
+    <br/>
+    <br/>
+    <span>Име:</span> <input id="ime" title="Име" class="tooltip" name="ime"/>
+
+</div>
+</body>
+</html>

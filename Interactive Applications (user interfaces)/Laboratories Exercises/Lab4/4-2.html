@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Datepicker Exercise</title>
+    <link rel="stylesheet" href="jquery/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="jquery/jquery-ui.css" />
+    <script src="jquery/jquery.bgiframe-2.1.2.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#datepicker").datepicker({
+
+                changeMonth: true,
+                changeYear: true,
+                beforeShowDay: function(date) {
+                    var day = date.getDate();
+                    var daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+                    if (daysInMonth % 2 === 0)
+                    {
+                        return [day % 2 !== 0, ""];
+                    }
+                    else
+                    {
+                        return [day % 2 === 0, ""];
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <span>Date:</span> <input id="datepicker">
+
+</body>
+</html>

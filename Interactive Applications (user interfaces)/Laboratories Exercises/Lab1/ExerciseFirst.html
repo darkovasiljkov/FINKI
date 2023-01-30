@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CountdownTimer</title>
+    <style>
+        #timer
+        {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 50px;
+            border: 1px solid black;
+            background: lightgray;
+        }
+    </style>
+</head>
+<body>
+<h1 id="timer"></h1>
+<script>
+    setInterval(function time()
+    {
+        var dateNow = new Date();
+        var hours = 24 - dateNow.getHours();
+        var minutes = 60 - dateNow.getMinutes();
+        var seconds = 60 - dateNow.getSeconds();
+        if((minutes + '').length === 1)
+        {
+            minutes = '0'+minutes;
+        }
+        if((seconds + '').length===1)
+        {
+            seconds = '0'+seconds;
+        }
+        document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
+    }, 1000);
+
+</script>
+</body>
+</html>

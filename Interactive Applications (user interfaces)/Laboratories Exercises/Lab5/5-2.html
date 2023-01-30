@@ -1,0 +1,135 @@
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Selectable</title>
+    <link rel="stylesheet" href="jquery/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="jquery/jquery-ui.css" />
+    <script src="jquery/jquery.bgiframe-2.1.2.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <style>
+        .ui-selected
+        {
+            background-color: orange;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var name = $("input:first-of-type").val()
+                var surname=$("input:nth-of-type(2)").val();
+                var pass=$("input:nth-of-type(3)").val();
+                var dob = $("input:last-of-type").val()
+
+
+                if (name!=="" && surname!=="" && pass!=="" && dob!=="")
+                {
+                    $(".error").hide()
+                    $("#openDialog").dialog("open")
+                    $("#name").html(name)
+                    $("#surname").html(surname)
+                    $("#pass").html(pass)
+                    $("#date_of_birth").html(dob)
+                }
+                else {
+                    $(".error").show()
+                    $("input:nth-of-type(-n+4)").css({
+                        border: '3px solid red',
+                        verticalAlign:'top'
+                    })
+                }
+            })
+
+            $("#openDialog").dialog({
+                autoOpen: false,
+                modal: true,
+
+            })
+            $("span").css({
+                display:'inline-block',
+                width:'85px'
+            })
+            $(".error").css({
+                display:'inline',
+                color:'red'
+
+            }).hide()
+            $("input:last-of-type").datepicker({
+                changeMonth:true,
+                changeYear:true,
+                duration:'slow',
+                dateFormat: 'm/d/yy',
+
+            })
+            $("ul").css({
+                width: '100px',
+                'list-style-type':'none',
+                paddingLeft:'0'
+            }).bind("mousedown",function (e) {
+                e.metaKey = true;
+            }).selectable({
+                stop:function () {
+
+                    var result='';
+                    $(".ui-selected").each(function () {
+
+                        result += $(this).text() + ', ';
+                    })
+                    $("#hobby").html(result);
+                    /*	$(".ui-selected",this).each(function () {
+                            $("div span:last-of-type").append($(this).html()+",")
+                        })*/
+                }
+            })
+
+
+            $(".ui-selectee").css({
+                border: '1px solid black',
+                width:'260px'
+            })
+            $("label").css({
+                lineHeight:'39px'
+            })
+            $("div").css({
+                maxWidth:'309px',
+                overflow:'hidden'
+            })
+            $("div span:last-of-type").css({
+                display: 'inline'
+            })
+        })
+    </script>
+</head>
+<body>
+
+
+<span> Name:</span><input type="text" placeholder="Name..."> <span class="error">Insert a name</span><br>
+<span> Surname:</span><input type="text" placeholder="Surname..."> <span class="error" >Insert a surname</span><br>
+<span> Password:</span><input type="password" placeholder="Password" > <span class="error">Insert a password</span><br>
+<span> DateOfBirth:</span><input id="dob"placeholder="Date Of Birth"> <span class="error">Select a date</span><br>
+
+<p>Select your hobbies:</p>
+
+<ul>
+    <li>Gaming</li>
+    <li>Sports</li>
+    <li>Watching Tv</li>
+    <li>Sleeping</li>
+    <li>Hiking</li>
+    <li>Skiing</li>
+    <li>Dancing</li>
+</ul>
+
+<button>Add my info</button><br>
+
+<div  title="User info" id="openDialog">
+    <label>Name:</label><span id="name"></span><br>
+    <label>Surname:</label><span id="surname"></span><br>
+    <label>Password:</label><span id="pass"></span><br>
+    <label>DateOfBirth:</label><span id="date_of_birth"></span><br>
+    <label>Hobbies:</label><span id="hobby"></span>
+</div>
+</body>
+</html>

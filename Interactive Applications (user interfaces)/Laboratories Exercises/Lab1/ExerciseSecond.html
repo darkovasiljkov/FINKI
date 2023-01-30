@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <style>
+        div
+        {
+            margin-bottom: 5px;
+
+        }
+        span
+        {
+            width: 110px;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        function loginSuccess()
+        {
+            var name=document.getElementById("name");
+            var artistName=document.getElementById("artistName");
+            var male=document.getElementById("male");
+            var genre=document.getElementById("genre");
+            var female=document.getElementById("female");
+
+            if(name.value==="" || artistName.value==="" || genre.value==="" ||
+                (male.checked===false && female.checked===false))
+            {
+                alert("Сите полиња се задолжителни!")
+                return;
+            }
+
+            else
+            {
+                alert(name.value+" "+ artistName.value+ ", " + isMaleFemale(male) + ", " + genre.value+ " - успешно се пријавивте! ")
+            }
+
+        }
+        function isMaleFemale(sex)
+        {
+           if (sex.checked===true)
+           {
+                return "машки";
+           }
+           else
+           {
+               return "женски";
+
+
+        }
+
+
+        }
+    </script>
+</head>
+
+<body>
+<h1>Форма за пријавување на X-Factor</h1>
+<div>
+    <span>Име</span><input type="text" id="name">
+
+</div>
+<div>
+    <span>Уметничко име</span><input type="text" id="artistName">
+
+</div>
+<div>
+    <span>Име</span>
+    <input type="radio" id="male" value="male" name="male">
+    <label>Машки</label>
+    <input type="radio" id="female" value="male" name="male">
+    <label>Женски</label>
+
+</div>
+<div>
+    <span>Жанр</span><select id="genre">
+        <option>
+        <option>Classical Music</option>
+        <option>Pop Music</option>
+        <option>R&B Music</option>
+        <option>Rap Music</option>
+    </select>
+
+</div>
+</br>
+<div>
+    <button onclick="loginSuccess()">Пријави се</button>
+</div>
+
+</body>
+</html>

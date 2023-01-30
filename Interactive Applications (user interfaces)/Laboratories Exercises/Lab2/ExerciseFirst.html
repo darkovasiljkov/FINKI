@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Custom Tab Components</title>
+    <style>
+        body
+        {
+            font-family: "Helvetica", Times, serif;
+            margin: 10px;
+
+        }
+        .active
+        {
+            display: block;
+        }
+        .hide
+        {
+            display: none;
+        }
+
+        ul
+        {
+            margin-top: -20px;
+            padding: 30px;
+
+        }
+        ul li a
+        {
+
+      display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            list-style-type: none;
+            background-color: navajowhite;
+            border: 1px solid black;
+            text-align: left;
+            font-style: italic;
+            width: 125px;
+            height: 20px;
+            padding-left: 5px;
+
+
+        }
+        ul li
+        {
+            list-style-type: none;
+            display: inline-block;
+
+        }
+        li a:hover
+        {
+            font-weight: bold;
+            background-color: lightgreen;
+
+        }
+
+
+        .list
+        {
+            text-align: justify-all;
+            height: 100px;
+            width: 400px;
+            padding: 10px;
+        }
+        .activelink{
+           font-weight: bold;
+            background-color: lightgreen;
+
+        }
+
+    </style>
+    <script>
+        $(document).ready(function()
+        {
+            $(".custom a").click(function(){
+                $(".custom a").removeClass("activelink");
+                $(this).addClass("activelink");
+                var tagid = $(this).data("tag");
+                $(".list").removeClass("active").addClass("hide");
+                $("#"+tagid).addClass("active").removeClass("hide");
+            });
+        });
+    </script>
+</head>
+<body>
+<div style="background-color: orange; height: 70px; width: 500px; border: 1px solid black; padding-top: 10px;">
+    <em style="margin-left: 20px;">Custom tab</em>
+<ul>
+    <li class="custom"><a data-tag="one" class="activelink">Open start</a></li>
+    <li class="custom"><a  data-tag="two">Connect</a></li>
+    <li class="custom"><a data-tag="three">Pin apps</a></li>
+</ul>
+</div>
+
+<div style="clear: both;"></div>
+<div style="background-color: lightskyblue; height: 150px; width: 500px; border: 1px solid black;">
+<div id="container">
+    <div class="list" id="one">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas erat imperdiet sed euismod nisi porta. Vitae ultricies leo integer malesuada. Eleifend quam adipiscing vitae proin sagittis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+    <div class="list hide" id="two">Ipsum dolor sit amet consectetur adipiscing elit ut. Tincidunt eget nullam non nisi est sit. Amet nisl suscipit adipiscing bibendum est. Orci eu lobortis elementum nibh. Tristique sollicitudin nibh sit amet commodo nulla. Suspendisse ultrices gravida. Ipsum dolor sit amet consectetur adipiscing elit ut. Tincidunt eget nullam non nisi est sit.</div>
+    <div class="list hide" id="three">Atoque penatibus et magnis dis parturient. Id cursus metus aliquam eleifend mi in nulla posuere sollicitudin. Non consectetur a erat nam at lectus urna. Sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget. Fermentum et sollicitudin ac orci phasellus.Atoque penatibus et magnis dis parturient. Id cursus metus aliquam eleifend mi in nulla posuere sollicitudin.</div>
+</div>
+</div>
+</body>
+</html>

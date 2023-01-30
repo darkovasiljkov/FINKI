@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <title>Change the size of font</title>
+    <style>
+        body
+        {
+            margin: 5px;
+            padding: 5px;
+            font-family: "", sans-serif;
+        }
+        button
+        {
+            width:120px;
+            text-align: center;
+
+        }
+
+
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#getBig").click(function () {
+                $("#changeThis").animate({
+                    "font-size": "20px"
+                });
+
+                    });
+            $("#getSmall").click(function () {
+                $("#changeThis").animate({
+                    "font-size": "7px"
+                });
+        });
+            $("#getBegin").click(function () {
+                $("#changeThis").animate({
+                    "font-size": "1em"
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div style="background-color: deepskyblue; width: 420px; height: 70px; border: 1px solid black;">
+<em style="font-size: 30px; margin-left: 10px;">Големина на фонт: </em>
+</br>
+    <button id="getBegin">Почетна</button>
+    <button id="getBig">Зголеми</button>
+    <button id="getSmall">Намали</button>
+
+</div>
+<div id="changeThis">
+    <h1>How to connect to the Internet</h1>
+    <p> If you want to access the internet at home, you'll need an Internet Service Provider (ISP) and a router to connect to the ISP. ISPs often provide a router with their service. This means more than one computer or device in your house can use the broadband connection at the same time.  Some devices can also use Wi-Fi to connect to the router.</p>
+    <p>If you want to use the phone whilst you are online, you can choose a broadband connection or get a second line installed specifically for internet access. </p>
+</div>
+</body>
+
+</html>

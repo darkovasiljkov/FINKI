@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software Packages</title>
+    <script src="jquery/jquery-ui.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <link rel="stylesheet" href="jquery/jquery-ui.min.css">
+    <style>
+        body
+        {
+            font-family: "Times New Roman", Times, serif;
+            margin: 5px;
+            padding: 5px;
+        }
+        nav
+        {
+            text-align: center;
+        }
+        .tab
+        {
+            display: inline-block;
+            text-align: center;
+            vertical-align: center;
+            line-height: 40px;
+            width: 200px;
+            height: 40px;
+            font-size: 17px;
+            font-weight: bold;
+            border: 1px solid black;
+            background: #8ec3eb;
+        }
+        .tab:hover
+        {
+            cursor: pointer;
+            background: #2a6592;
+            border: 1px solid white;
+        }
+        #lists
+        {
+            background: floralwhite;
+        }
+        #lists ul li
+        {
+            list-style-type: square;
+        }
+        #secondLists h3
+        {
+            background-color: orange;
+            width: 300px;
+            border: 1px solid red;
+            text-align: center;
+        }
+
+        #secondLists div:hover
+        {
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(document).ready(function (){
+
+            $("#game").click(function ()
+            {
+                $("#lists div").hide();
+                $("#games").show()
+            })
+
+            $("#lists div").hide()
+            $("#med").click(function (){
+
+                $("#lists div").hide();
+                $("#medicine").show()
+            })
+
+            $("#edu").click(function () {
+
+                $("#lists div").hide();
+                $("#education").show()
+            })
+
+            $("#account").click(function (){
+
+                $("#lists div").hide();
+                $("#accounting").show()
+            })
+
+            $("#secondLists h3").siblings().hide()
+            $("#secondLists h3").click(function (){
+                $(this).siblings().slideToggle()
+            })
+        })
+    </script>
+</head>
+<body>
+<nav>
+    <div id="med" class="tab">Медицина</div>
+    <div id="edu" class="tab">Образование</div>
+    <div id="account" class="tab">Сметководство</div>
+    <div id="game" class="tab">Игри</div>
+</nav>
+<div id="lists">
+
+    <div id="medicine">
+        <ul>
+            <li>MedIm</li>
+            <li>MedIA</li>
+            <li>FINKI-Med</li>
+        </ul>
+    </div>
+    <div id="education">
+        <ul>
+            <li>FINKI-Edu</li>
+            <li>Edu-Buddy</li>
+            <li>FINKI-LE</li>
+            <li>FINKI-Math</li>
+        </ul>
+    </div>
+    <div id="accounting">
+        <ul>
+            <li>eTax</li>
+            <li>FINKI-Tax</li>
+            <li>Tax-All</li>
+            <li>mySalary</li>
+        </ul>
+    </div>
+    <div id="games">
+        <ul>
+            <li>FINKI-game</li>
+            <li>Grelima</li>
+            <li>Edaolith</li>
+            <li>Foessa</li>
+            <li>Jeroen</li>
+        </ul>
+    </div>
+</div>
+<div id="secondLists">
+    <div>
+        <h3>Тим</h3>
+        <ul>
+            <li>Алберт Ајнштајн</li>
+            <li>Ален Тјуринг</li>
+            <li>Архимед</li>
+        </ul>
+    </div>
+    <div>
+        <h3>Претставништва</h3>
+        <ul>
+            <li>Скопје</li>
+            <li>Прилеп</li>
+            <li>Велес</li>
+        </ul>
+    </div>
+    <div>
+        <h3>Контакт</h3>
+        <ul>
+            <li>Ул. Есенска 24/5 1000 Скопје</li>
+            <li>+38921234567</li>
+            <li>finkiit@iaispit.com</li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

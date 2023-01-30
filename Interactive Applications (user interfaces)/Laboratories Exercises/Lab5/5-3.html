@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add/Remove Selectable</title>
+    <link rel="stylesheet" href="jquery/jquery-ui.theme.css" />
+    <link rel="stylesheet" href="jquery/jquery-ui.css" />
+    <script src="jquery/jquery.bgiframe-2.1.2.js"></script>
+    <script src="jquery/jquery.js"></script>
+    <script src="jquery/jquery-ui.js"></script>
+    <style>
+        body
+{
+    margin: 5px;
+    padding: 5px;
+}
+        #selected_items,span:nth-of-type(2)
+        {
+            background-color:lightgreen;
+            display:inline-block;
+            border-top:2px solid black;
+            border-bottom:2px solid black;
+        }
+        ul
+        {
+            list-style-type: none;
+            width: 260px;
+        }
+        ul>li
+        {
+            margin-bottom: 2px;
+            padding-left: 10px;
+            height: 25px;
+            font-size: 19px;
+        }
+        div
+        {
+            display:inline-block;
+            border-top:2px solid black;
+            border-bottom:2px solid black;
+            background-color:lightgreen;
+        }
+        .ui-selectee, .ui-selected
+        {
+            border: 1px solid black
+        }
+        .ui-selected
+        {
+            background-color: lightgreen;
+            color:white;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("ul").bind("mousedown",function (e) {
+                e.metaKey = true;
+            })
+                .selectable({
+                stop: function ()
+                {
+                    var result = '';
+                    $(".ui-selected").each(function ()
+                    {
+
+                        result += $(this).text() + ' ';
+                    })
+                    $("div").html(result)
+                }
+            })
+            $("#first").click(function () {
+
+                $("<li>").append($("input").val()).appendTo("ul")
+            })
+            $("#second").click(function () {
+                $(".ui-selected").hide()
+            })
+
+        })
+    </script>
+</head>
+<body>
+
+<p>New Item:</p>
+<input type="text">
+
+<br/>
+<br/>
+
+<button id="first">Add new item</button>
+<button id="second">Delete selected item</button>
+
+<br/>
+<br/>
+
+<span id="selected_items">Selected items:</span>
+<div></div>
+<ul>
+    <li id="1">Item1</li>
+    <li id="2">Item2</li>
+    <li id="3">Item3</li>
+    <li id="4">Item4</li>
+    <li id="5">Item5</li>
+</ul>
+
+</body>
+</html>
